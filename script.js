@@ -1,3 +1,4 @@
+// Abrir la carta al click
 const boton = document.getElementById("boton-secreto");
 const carta = document.querySelector(".carta");
 
@@ -22,12 +23,12 @@ for (let i = 0; i < totalHearts; i++) {
   const size = Math.random() * 20 + 15;
   heart.style.fontSize = size + "px";
 
-  // Duración de caída aleatoria
+  // Duración animación aleatoria
   const duration = Math.random() * 5 + 5;
   heart.style.animationDuration = duration + "s";
 
   // Retraso inicial aleatorio
-  heart.style.animationDelay = Math.random() * 5 + "s";
+  heart.style.animationDelay = Math.random() * 10 + "s";
 
   container.appendChild(heart);
 }
