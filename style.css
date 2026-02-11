@@ -29,17 +29,17 @@ body {
 /* Carta */
 .carta {
   position: relative;
-  background: url('Kuromi2.png') no-repeat center bottom, #ffe4e1;
+  background: #fff0e5 url('Kuromi2.png') no-repeat center bottom; /* fondo cremita pastel */
   background-size: contain;
-  padding: 40px 50px 100px;
+  padding: 50px 40px 100px; /* más espacio para que no quede pegado */
   width: 90%;
   max-width: 750px;
-  border-radius: 20px;
+  border-radius: 25px;
   box-shadow: 0 8px 20px rgba(165, 94, 255, 0.5);
   color: #3b0052;
   font-weight: 400;
   font-size: 1.15rem;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: left;
   opacity: 0;
   transform-origin: top center;
@@ -48,6 +48,7 @@ body {
   margin-top: 20px;
   z-index: 5;
 }
+
 
 /* Abrir carta hacia abajo */
 .carta.abrir-carta {
