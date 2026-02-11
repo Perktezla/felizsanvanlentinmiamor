@@ -1,214 +1,149 @@
 /* BODY */
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #c399ff, #d580ff, #f0cfff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-}
-
-/* TÍTULO */
-.main-title {
-    position: absolute;
-    top: 20px;
-    font-size: 70px;
-    color: #fff;
-    text-shadow: 0 0 20px #fff, 0 0 40px #d580ff;
-    z-index: 5;
-    text-align: center;
-}
-
-/* CONTENEDOR */
-.container {
-    text-align: center;
-    z-index: 10;
-    position: relative;
-}
-
-/* FONDO: CORAZONES */
-#hearts-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.heart-float {
-    position: absolute;
-    font-size: 20px;
-    color: #ff99ff;
-    opacity: 0.8;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    0% { transform: translateY(-50px) rotate(0deg); opacity:0.8; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity:0.2; }
-}
-
-/* SOBRE */
-.envelope {
-    position: relative;
-    width: 380px;
-    height: 240px;
-    background: #b366ff;
-    border-radius: 20px;
-    box-shadow: 0 0 30px #fff;
-    overflow: hidden;
-    cursor: pointer;
-    transition: 0.8s;
-    display: inline-block;
-}
-
-/* TAPA DEL SOBRE */
-.flap {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #8a2be2;
-    clip-path: polygon(0 0, 100% 0, 50% 60%);
-    transform-origin: top;
-    transition: 0.8s;
-    z-index: 3;
-}
-
-/* CARTA */
-.letter {
-    position: absolute;
-    z-index: 2;
-    width: 90%;
-    height: 90%;
-    background: #fff0ff;
-    color: #330033;
-    padding: 25px;
-    top: 100%;
-    left: 5%;
-    border-radius: 20px;
-    transition: 0.8s;
-    box-shadow: 0 0 25px #d580ff;
-    overflow-y: auto;
-}
-
-/* Carta abierta */
-.envelope.open .flap {
-    transform: rotateX(180deg);
-}
-
-.envelope.open .letter {
-    top: 5%;
-}
-
-/* TEXTO CLICK SOBRE */
-.click-text {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    z-index: 4;
-    font-size: 18px;
-}
-
-/* NOMBRE BRILLANTE */
-.nombre {
-    color: #ff66ff;
-    animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 5px #ff66ff, 0 0 10px #d580ff; }
-    to { text-shadow: 0 0 15px #ff99ff, 0 0 30px #d580ff; }
-}
-
-/* CORAZÓN LATIENDO */
-.heart {
-    font-size: 45px;
-    margin-top: 15px;
-    animation: beat 1s infinite;
-}
-
-@keyframes beat {
-    0%, 40%, 100% { transform: scale(1); }
-    25%, 60% { transform: scale(1.2); }
-}
-
-/* KUROMI TOP */
-.kuromi-top {
-    width: 130px;
-    display: block;
-    margin: 0 auto 15px auto;
-    filter: drop-shadow(0 0 20px #d580ff);
-    animation: floatKuromi 3s ease-in-out infinite;
-}
-
-@keyframes floatKuromi {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-}
-
-/* KUROMI FONDO */
-.kuromi-bg {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    width: 220px;
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-}
-/* CENTRAR TODO Y AJUSTAR EN MÓVIL */
 body, html {
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #d1b3ff, #e0aaff, #f8e0ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* Contenedor centrado */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px;
+/* Fondo de corazones */
+#hearts-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-/* Sobre y carta responsivos */
-.envelope {
-    width: 90%;
-    max-width: 380px;
-    height: auto;
+/* Carta centrada */
+.carta {
+  background: #fff0ff;
+  padding: 20px 25px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px #d580ff;
+  max-width: 90%;
+  width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
-.letter {
-    width: 90%;
-    max-height: 400px;
-    padding: 20px;
-}
-
-/* Título responsivo */
-.main-title {
-    font-size: 10vw; /* Se adapta al ancho de la pantalla */
-    top: 10px;
-    padding: 0 10px;
-}
-
-/* Texto click sobre */
-.click-text {
-    font-size: 4vw;
-}
-
-/* Kuromi decorativa */
+/* Kuromi decorativa arriba */
 .kuromi-top {
-    width: 25vw;
-    max-width: 130px;
+  width: 120px;
+  margin: 0 auto 15px auto;
+  display: block;
+  filter: drop-shadow(0 0 15px #d580ff);
+  animation: floatKuromi 3s ease-in-out infinite;
 }
 
+/* Kuromi fondo decorativo */
 .kuromi-bg {
-    width: 40vw;
-    max-width: 220px;
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 180px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
 }
+
+/* Animación flotante Kuromi */
+@keyframes floatKuromi {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Título animado */
+.titulo-animado {
+  font-size: 6vw; 
+  color: #a020f0;
+  text-shadow: 0 0 10px #d580ff, 0 0 20px #ff99ff;
+  margin-bottom: 15px;
+}
+
+/* Texto carta */
+.estilo-especial {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #330033;
+  text-align: justify;
+}
+
+/* Botón abrir carta */
+.boton-animado {
+  margin-top: 25px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  background: #a020f0;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #d580ff;
+  transition: 0.3s;
+  z-index: 10;
+  position: relative;
+}
+
+.boton-animado:hover {
+  transform: scale(1.1);
+  background: #d580ff;
+}
+
+/* Responsivo móvil */
+@media (max-width: 600px) {
+  .titulo-animado {
+    font-size: 8vw;
+  }
+
+  .estilo-especial {
+    font-size: 1rem;
+  }
+
+  .boton-animado {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  .kuromi-top {
+    width: 25vw;
+  }
+
+  .kuromi-bg {
+    width: 35vw;
+  }
+}
+/* Animación carta al abrir */
+.abrir-carta {
+  animation: cartaFade 1s forwards;
+}
+
+@keyframes cartaFade {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+/* Corazones flotando */
+.heart-float {
+  position: absolute;
+  top: -50px;
+  animation-name: caerCorazon;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 0;
+}
+
+@keyframes caerCorazon {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
