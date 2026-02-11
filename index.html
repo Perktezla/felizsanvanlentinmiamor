@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para Lizbeth 💜</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background">
+    <div class="stars"></div>
+    <div class="hearts"></div>
+    <div class="bats"></div>
+</div>
+
+<div class="opening-message" id="openingMessage">
+    Para <span class="nombre">Mi Princesita</span> 💜
+</div>
+
+<div class="container">
+
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+
+        <div class="letter">
+
+            <!-- Kuromi decorativa arriba -->
+            <img src="kuromi-top.png" class="kuromi-top">
+
+            <h1>Feliz San Valentín 💜</h1>
+
+            <p>Hola Mi Amor 💜</p>
+
+            <p>
+                No soy muy bueno escribiendo cartas, pero hoy quería tomarme un momento
+                para recordarte lo agradecido que estoy por tener la oportunidad de hablar contigo
+                y, al mismo tiempo, la suerte tan grande que es poder llamarte mi amor.
+            </p>
+
+            <p>
+                Me gustas mucho, <span class="nombre">Lizbeth</span>.
+                Sé que te lo digo seguido, pero nunca está de más recordártelo.
+            </p>
+
+            <p>
+                Te amo, <span class="nombre">Lizbeth</span>.
+            </p>
+
+            <p class="firma">
+                Te amo muchísimo 💜
+            </p>
+
+            <div class="heart">💜</div>
+
+            <!-- Kuromi fondo decorativo -->
+            <img src="kuromi-bg.png" class="kuromi-bg">
+
+        </div> <!-- cierre letter -->
+
+    </div> <!-- cierre envelope -->
+
+    <button id="btn" onclick="abrirSobre()">Abrir el sobre 💌</button>
+
+</div> <!-- cierre container -->
+
+<script>
+function abrirSobre() {
+    document.getElementById("envelope").classList.add("open");
+    document.getElementById("btn").style.display = "none";
+
+    const msg = document.getElementById("openingMessage");
+    msg.style.opacity = "1";
+
+    setTimeout(() => {
+        msg.style.opacity = "0";
+    }, 2500);
+}
+</script>
+
+</body>
+</html>
