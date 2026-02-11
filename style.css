@@ -3,7 +3,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #ffe4e1; /* fondo rosita crema */
+  background: #ffe4e1; /* Fondo rosita crema */
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -29,9 +29,8 @@ body {
 /* Carta */
 .carta {
   position: relative;
-  background: #fff0e5 url('Kuromi2.png') no-repeat center bottom; /* fondo cremita pastel */
-  background-size: contain;
-  padding: 50px 40px 100px; /* más espacio para que no quede pegado */
+  background: #fff8f0; /* Fondo pastel para la carta */
+  padding: 50px 40px 100px;
   width: 90%;
   max-width: 750px;
   border-radius: 25px;
@@ -48,7 +47,6 @@ body {
   margin-top: 20px;
   z-index: 5;
 }
-
 
 /* Abrir carta hacia abajo */
 .carta.abrir-carta {
