@@ -2,7 +2,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #b266ff, #d580ff, #f0cfff);
+    background: linear-gradient(135deg, #c399ff, #d580ff, #f0cfff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,9 +14,9 @@ body {
 .main-title {
     position: absolute;
     top: 20px;
-    font-size: 60px;
+    font-size: 70px;
     color: #fff;
-    text-shadow: 0 0 15px #fff, 0 0 30px #d580ff;
+    text-shadow: 0 0 20px #fff, 0 0 40px #d580ff;
     z-index: 5;
     text-align: center;
 }
@@ -28,7 +28,7 @@ body {
     position: relative;
 }
 
-/* FONDO CORAZONES */
+/* FONDO: CORAZONES */
 #hearts-container {
     position: absolute;
     width: 100%;
@@ -47,31 +47,25 @@ body {
 }
 
 @keyframes fall {
-    0% {
-        transform: translateY(-50px) rotate(0deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0.2;
-    }
+    0% { transform: translateY(-50px) rotate(0deg); opacity:0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity:0.2; }
 }
 
 /* SOBRE */
 .envelope {
     position: relative;
-    width: 350px;
-    height: 220px;
+    width: 380px;
+    height: 240px;
     background: #b366ff;
-    border-radius: 15px;
-    box-shadow: 0 0 25px #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #fff;
     overflow: hidden;
     cursor: pointer;
     transition: 0.8s;
     display: inline-block;
 }
 
-/* TAPA */
+/* TAPA DEL SOBRE */
 .flap {
     position: absolute;
     width: 100%;
@@ -94,9 +88,9 @@ body {
     padding: 25px;
     top: 100%;
     left: 5%;
-    border-radius: 15px;
+    border-radius: 20px;
     transition: 0.8s;
-    box-shadow: 0 0 20px #d580ff;
+    box-shadow: 0 0 25px #d580ff;
     overflow-y: auto;
 }
 
@@ -109,7 +103,7 @@ body {
     top: 5%;
 }
 
-/* CLICK SOBRE */
+/* TEXTO CLICK SOBRE */
 .click-text {
     position: absolute;
     bottom: 10px;
@@ -118,7 +112,7 @@ body {
     font-weight: bold;
     text-align: center;
     z-index: 4;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* NOMBRE BRILLANTE */
@@ -134,7 +128,7 @@ body {
 
 /* CORAZÓN LATIENDO */
 .heart {
-    font-size: 40px;
+    font-size: 45px;
     margin-top: 15px;
     animation: beat 1s infinite;
 }
@@ -146,16 +140,16 @@ body {
 
 /* KUROMI TOP */
 .kuromi-top {
-    width: 120px;
+    width: 130px;
     display: block;
     margin: 0 auto 15px auto;
-    filter: drop-shadow(0 0 15px #d580ff);
+    filter: drop-shadow(0 0 20px #d580ff);
     animation: floatKuromi 3s ease-in-out infinite;
 }
 
 @keyframes floatKuromi {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
 }
 
 /* KUROMI FONDO */
@@ -163,7 +157,7 @@ body {
     position: absolute;
     bottom: -10px;
     right: -10px;
-    width: 200px;
+    width: 220px;
     opacity: 0.08;
     pointer-events: none;
     z-index: 0;

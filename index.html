@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Para Lizbeth 💜</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Para Lizbeth 💜</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Fondo animado -->
 <div class="background">
     <div id="hearts-container"></div>
 </div>
 
+<!-- Título grande -->
 <h1 class="main-title">Feliz San Valentín 💜</h1>
 
 <div class="container">
 
+    <!-- Sobre -->
     <div class="envelope" id="envelope">
         <div class="flap"></div>
 
+        <!-- Carta dentro del sobre -->
         <div class="letter">
             <img src="kuromi-top.png" class="kuromi-top">
 
@@ -51,6 +55,7 @@
 
 </div>
 
+<!-- Scripts -->
 <script>
 // Abrir el sobre
 const envelope = document.getElementById("envelope");
@@ -61,7 +66,7 @@ envelope.addEventListener("click", () => {
 
 // Lluvia de corazones
 const container = document.getElementById('hearts-container');
-const totalHearts = 30;
+const totalHearts = 40;
 
 for(let i = 0; i < totalHearts; i++) {
     const heart = document.createElement('div');
@@ -70,7 +75,7 @@ for(let i = 0; i < totalHearts; i++) {
 
     heart.style.left = Math.random() * 100 + "vw";
 
-    const size = Math.random() * 20 + 15;
+    const size = Math.random() * 25 + 15;
     heart.style.fontSize = size + "px";
 
     const duration = Math.random() * 5 + 5;
