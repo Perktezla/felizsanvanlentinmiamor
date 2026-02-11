@@ -1,149 +1,151 @@
-/* BODY */
+/* Reset y body */
 body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+  margin: 0; padding: 0; height: 100%;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #d1b3ff, #e0aaff, #f8e0ff);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Fondo de corazones */
-#hearts-container {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* Carta centrada */
-.carta {
-  background: #fff0ff;
-  padding: 20px 25px;
-  border-radius: 25px;
-  box-shadow: 0 0 25px #d580ff;
-  max-width: 90%;
-  width: 500px;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
-
-/* Kuromi decorativa arriba */
+/* Kuromi arriba */
 .kuromi-top {
   width: 120px;
-  margin: 0 auto 15px auto;
-  display: block;
-  filter: drop-shadow(0 0 15px #d580ff);
+  margin-bottom: 20px;
   animation: floatKuromi 3s ease-in-out infinite;
 }
 
-/* Kuromi fondo decorativo */
-.kuromi-bg {
-  position: absolute;
-  bottom: -10px;
-  right: -10px;
-  width: 180px;
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Animación flotante Kuromi */
 @keyframes floatKuromi {
-  0%,100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-/* Título animado */
+/* Carta inicialmente oculta */
+.carta {
+  max-width: 500px;
+  width: 90%;
+  background: #fff0ff;
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 0 0 25px #d580ff;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
+  text-align: justify;
+  color: #330033;
+  z-index: 10;
+}
+
+/* Carta visible cuando se abre */
+.carta.abrir-carta {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Título animado con brillo */
 .titulo-animado {
-  font-size: 6vw; 
+  font-size: 5vw;
+  font-weight: 600;
   color: #a020f0;
-  text-shadow: 0 0 10px #d580ff, 0 0 20px #ff99ff;
+  text-align: center;
   margin-bottom: 15px;
+  animation: glow 2s infinite alternate;
+  user-select: none;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #ff66ff,
+      0 0 10px #c77dff,
+      0 0 20px #a020f0;
+  }
+  to {
+    text-shadow:
+      0 0 15px #ff99ff,
+      0 0 30px #d580ff,
+      0 0 45px #ff66ff;
+  }
 }
 
 /* Texto carta */
 .estilo-especial {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #330033;
-  text-align: justify;
 }
 
-/* Botón abrir carta */
+/* Botón centrado */
 .boton-animado {
   margin-top: 25px;
   padding: 12px 20px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   background: #a020f0;
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 15px;
   cursor: pointer;
   box-shadow: 0 0 15px #d580ff;
   transition: 0.3s;
   z-index: 10;
-  position: relative;
 }
 
 .boton-animado:hover {
-  transform: scale(1.1);
   background: #d580ff;
+  transform: scale(1.05);
+}
+
+/* Lluvia de corazones (estilo para los divs creados dinámicamente) */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.heart-float {
+  position: absolute;
+  top: -50px;
+  font-size: 20px;
+  color: #a020f0; /* morado Kuromi */
+  animation-name: fallHeart;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  user-select: none;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 3px #d580ff);
+  pointer-events: none;
+}
+
+@keyframes fallHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Responsivo móvil */
 @media (max-width: 600px) {
   .titulo-animado {
-    font-size: 8vw;
+    font-size: 7vw;
   }
-
-  .estilo-especial {
-    font-size: 1rem;
-  }
-
   .boton-animado {
-    font-size: 0.9rem;
-    padding: 10px 15px;
+    font-size: 1rem;
+    padding: 10px 18px;
   }
-
   .kuromi-top {
     width: 25vw;
   }
-
-  .kuromi-bg {
-    width: 35vw;
-  }
 }
-/* Animación carta al abrir */
-.abrir-carta {
-  animation: cartaFade 1s forwards;
-}
-
-@keyframes cartaFade {
-  0% { opacity: 0; transform: scale(0.8); }
-  50% { opacity: 0.5; transform: scale(1.05); }
-  100% { opacity: 1; transform: scale(1); }
-}
-/* Corazones flotando */
-.heart-float {
-  position: absolute;
-  top: -50px;
-  animation-name: caerCorazon;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  z-index: 0;
-}
-
-@keyframes caerCorazon {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
-
