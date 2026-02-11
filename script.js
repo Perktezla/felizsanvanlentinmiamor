@@ -4,7 +4,7 @@ const carta = document.querySelector(".carta");
 
 boton.addEventListener("click", () => {
   carta.classList.add("abrir-carta");
-  boton.style.display = "none";
+  boton.parentElement.style.display = "none"; // Oculta Kuromi + botón
 });
 
 // Lluvia de corazones
@@ -16,18 +16,9 @@ for (let i = 0; i < totalHearts; i++) {
   heart.classList.add("heart-float");
   heart.innerText = "💜";
 
-  // Posición horizontal aleatoria
   heart.style.left = Math.random() * 100 + "vw";
-
-  // Tamaño aleatorio
-  const size = Math.random() * 20 + 15;
-  heart.style.fontSize = size + "px";
-
-  // Duración animación aleatoria
-  const duration = Math.random() * 5 + 5;
-  heart.style.animationDuration = duration + "s";
-
-  // Retraso inicial aleatorio
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  heart.style.animationDuration = Math.random() * 5 + 5 + "s";
   heart.style.animationDelay = Math.random() * 10 + "s";
 
   container.appendChild(heart);

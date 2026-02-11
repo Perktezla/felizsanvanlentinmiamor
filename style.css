@@ -3,23 +3,33 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #c69cff, #a55eff);
+  background: #ffe4e1; /* fondo rosita crema */
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 40px 20px;
   overflow-x: hidden;
   position: relative;
   color: #3b0052;
-  max-width: 100vw;
 }
 
-/* Contenedor carta */
+/* Contenedor centrado vertical */
+.centro-pantalla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* centra verticalmente */
+  z-index: 10;
+}
+
+/* Carta */
 .carta {
   position: relative;
-  background: url('Kuromi2.png') no-repeat center bottom;
+  background: url('Kuromi2.png') no-repeat center bottom, #ffe4e1;
   background-size: contain;
   padding: 40px 50px 100px;
   width: 90%;
@@ -35,10 +45,11 @@ body {
   transform-origin: top center;
   transform: scaleY(0);
   transition: transform 0.7s ease, opacity 0.7s ease;
+  margin-top: 20px;
   z-index: 5;
 }
 
-/* Al abrir la carta: abrir hacia abajo */
+/* Abrir carta hacia abajo */
 .carta.abrir-carta {
   opacity: 1;
   transform: scaleY(1);
@@ -59,7 +70,7 @@ body {
 
 /* Párrafo especial */
 .estilo-especial {
-  white-space: pre-line; /* respeta saltos de línea */
+  white-space: pre-line;
   margin-top: 0;
 }
 
@@ -68,12 +79,12 @@ body {
   background-color: #7c00ff;
   border: none;
   border-radius: 25px;
-  padding: 18px 36px;
+  padding: 20px 40px;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
-  margin: 25px auto 40px;
+  margin-top: 20px;
   display: block;
   box-shadow:
     0 0 15px #b375ff,
@@ -89,16 +100,15 @@ body {
 
 /* Imagen Kuromi arriba del botón */
 .kuromi-top {
-  width: 140px;
-  display: block;
-  margin: 0 auto 20px;
+  width: 160px;
+  margin-bottom: 20px;
   filter: drop-shadow(0 0 15px #a020f0);
   animation: floatKuromi 3s ease-in-out infinite;
 }
 
 @keyframes floatKuromi {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
@@ -137,7 +147,7 @@ body {
   }
 }
 
-/* Responsive para móvil */
+/* Responsive */
 @media screen and (max-width: 600px) {
   .carta {
     width: 95%;
@@ -157,6 +167,6 @@ body {
   }
 
   .kuromi-top {
-    width: 110px;
+    width: 120px;
   }
 }
