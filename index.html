@@ -8,14 +8,10 @@
 <body>
 
 <div class="background">
-    <div class="stars"></div>
-    <div class="hearts"></div>
-    <div class="bats"></div>
+    <div id="hearts-container"></div>
 </div>
 
-<div class="opening-message" id="openingMessage">
-    Para <span class="nombre">Mi Princesita</span> 💜
-</div>
+<h1 class="main-title">Feliz San Valentín 💜</h1>
 
 <div class="container">
 
@@ -23,13 +19,9 @@
         <div class="flap"></div>
 
         <div class="letter">
-
-            <!-- Kuromi decorativa arriba -->
             <img src="kuromi-top.png" class="kuromi-top">
 
-            <h1>Feliz San Valentín 💜</h1>
-
-            <p>Hola Mi Amor 💜</p>
+            <h2>Hola Mi Amor 💜</h2>
 
             <p>
                 No soy muy bueno escribiendo cartas, pero hoy quería tomarme un momento
@@ -39,7 +31,6 @@
 
             <p>
                 Me gustas mucho, <span class="nombre">Lizbeth</span>.
-                Sé que te lo digo seguido, pero nunca está de más recordártelo.
             </p>
 
             <p>
@@ -52,28 +43,42 @@
 
             <div class="heart">💜</div>
 
-            <!-- Kuromi fondo decorativo -->
             <img src="kuromi-bg.png" class="kuromi-bg">
+        </div>
 
-        </div> <!-- cierre letter -->
+        <div class="click-text">Click para abrirlo amor :3 💌</div>
+    </div>
 
-    </div> <!-- cierre envelope -->
-
-    <button id="btn" onclick="abrirSobre()">Abrir el sobre 💌</button>
-
-</div> <!-- cierre container -->
+</div>
 
 <script>
-function abrirSobre() {
-    document.getElementById("envelope").classList.add("open");
-    document.getElementById("btn").style.display = "none";
+// Abrir el sobre
+const envelope = document.getElementById("envelope");
+envelope.addEventListener("click", () => {
+    envelope.classList.add("open");
+    envelope.querySelector(".click-text").style.display = "none";
+});
 
-    const msg = document.getElementById("openingMessage");
-    msg.style.opacity = "1";
+// Lluvia de corazones
+const container = document.getElementById('hearts-container');
+const totalHearts = 30;
 
-    setTimeout(() => {
-        msg.style.opacity = "0";
-    }, 2500);
+for(let i = 0; i < totalHearts; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart-float');
+    heart.innerText = "💜";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    const size = Math.random() * 20 + 15;
+    heart.style.fontSize = size + "px";
+
+    const duration = Math.random() * 5 + 5;
+    heart.style.animationDuration = duration + "s";
+
+    heart.style.animationDelay = Math.random() * 5 + "s";
+
+    container.appendChild(heart);
 }
 </script>
 
