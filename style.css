@@ -3,7 +3,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #ffe4e1; /* Fondo rosita crema */
+  background: #1a001f; /* Fondo morado oscuro */
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
   justify-content: flex-start;
   overflow-x: hidden;
   position: relative;
-  color: #3b0052;
+  color: #fff;
 }
 
 /* Contenedor centrado vertical */
@@ -29,7 +29,7 @@ body {
 /* Carta */
 .carta {
   position: relative;
-  background: #fff8f0; /* Fondo pastel para la carta */
+  background: #ffffff; /* Fondo blanco de la carta */
   padding: 50px 40px 100px;
   width: 90%;
   max-width: 750px;
