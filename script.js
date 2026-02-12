@@ -14,7 +14,7 @@ Te amo, Lizbeth. Te deseo, te quiero, me encantas, me gustas… y agradezco cada
 
 Te amo muchísimo.
 
-💜 Te Amo mi Amor 💜`;
+💜 Te Amo como no te imaginas mi amor 💜`;
 
 // Fechas para los contadores
 const inicioHablar = new Date("2026-01-08T04:28:00");
