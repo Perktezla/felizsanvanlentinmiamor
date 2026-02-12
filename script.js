@@ -1,6 +1,7 @@
 const boton = document.getElementById("boton-secreto");
 const carta = document.querySelector(".carta");
 const textoCarta = document.getElementById("texto-carta");
+const contadorBox = document.getElementById("contador-box");
 
 const mensaje = `Hola Mi Amor 💜,
 
@@ -21,12 +22,11 @@ const inicioNovios = new Date("2026-02-08T04:22:00");
 boton.addEventListener("click", () => {
   carta.classList.add("abrir-carta");
   document.querySelector(".centro-pantalla").style.display = "none";
-  escribirTexto();
-  iniciarContadores();
-  moverKuromis();
+  escribirTexto(); // Escribir carta animada
+  moverKuromis();  // Kuromis laterales
 });
 
-// Escribir texto animado
+// Escribir texto animado letra por letra
 function escribirTexto() {
   let i = 0;
   const velocidad = 20;
@@ -34,7 +34,12 @@ function escribirTexto() {
   const intervalo = setInterval(() => {
     textoCarta.innerText = mensaje.slice(0, i);
     i++;
-    if (i > mensaje.length) clearInterval(intervalo);
+    if (i > mensaje.length) {
+      clearInterval(intervalo);
+      // Mostrar contador al terminar
+      contadorBox.style.display = "block";
+      iniciarContadores();
+    }
   }, velocidad);
 }
 
@@ -58,7 +63,7 @@ function calcularTiempo(inicio) {
   return `${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
 }
 
-// Mover Kuromis a los lados
+// Kuromis laterales
 function moverKuromis() {
   const kuromiOriginal = document.querySelector(".kuromi-top");
   kuromiOriginal.style.display = "none";

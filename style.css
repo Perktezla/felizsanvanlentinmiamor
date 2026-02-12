@@ -153,3 +153,12 @@ body {
   0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
+/* Contador oculto al inicio */
+.contador-box {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #3b0052;
+  display: none; /* Se mostrará después */
+}
