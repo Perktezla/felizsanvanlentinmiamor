@@ -3,34 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feliz San Valentín 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Nuestra Historia 💜</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Lluvia de corazones -->
-  <div id="hearts-container"></div>
+<div id="hearts-container"></div>
 
-  <!-- Contenedor centrado de Kuromi + botón -->
-  <div class="centro-pantalla">
-    <img src="Kuromi1.png" alt="Kuromi" class="kuromi-top">
-    <button id="boton-secreto" class="boton-animado">💌 Click para abrir 💜</button>
+<div class="centro-pantalla">
+  <img src="Kuromi1.png" class="kuromi-top">
+  <button id="boton-secreto" class="boton-animado">💌 Click para abrir 💜</button>
+</div>
+
+<div class="carta">
+  <h1 class="titulo-animado">Feliz San Valentín 💖</h1>
+  <p id="texto-carta" class="estilo-especial"></p>
+
+  <div class="contador-box">
+    💜 <strong>Nuestra historia en tiempo real</strong> 💜<br><br>
+
+    🗨️ Llevamos hablando:<br>
+    <span id="contador-hablando"></span><br><br>
+
+    💑 Somos novios desde hace:<br>
+    <span id="contador-novios"></span>
   </div>
 
-  <!-- Carta -->
-  <div class="carta">
-    <h1 class="titulo-animado">Feliz San Valentín 💖</h1>
-    <p class="estilo-especial">
-Hola Mi Amor 💜,<br><br>
-No soy muy bueno escribiendo cartas, pero hoy quería tomarme un momento para recordarte lo agradecido que estoy por tener la oportunidad de hablar contigo y, al mismo tiempo, la suerte tan grande que es poder llamarte mi amor.<br><br>
-Me gustas mucho, Lizbeth. Sé que te lo digo seguido, pero nunca está de más recordártelo. Gracias por ser una mujer tan maravillosa, incluso en el poco tiempo que llevamos compartiendo. Eres una chica muy tierna, muy bonita y muy amable. Tu voz es hermosa, eres muy cariñosa conmigo y haces que cada momento a tu lado se sienta especial.<br><br>
-Te amo, Lizbeth. Te deseo, te quiero, me encantas, me gustas… y agradezco cada segundo que pasamos juntos cada charla, cada mensaje, cada risa compartida. Sé que a veces no soy el mejor novio o no siempre soy el más cariñoso, pero prometo mejorar, por ti y por nosotros.<br><br>
-Te amo muchísimo.<br><br>
-💜 Te Amo mi Amor 💜
-    </p>
+  <div id="final-romantico" class="final-romantico oculto">
+    💜 ¿Quieres seguir escribiendo esta historia conmigo? 💜<br><br>
+    <button class="boton-final">Sí, siempre 💖</button>
+    <button class="boton-final">Obvio que sí 💜</button>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

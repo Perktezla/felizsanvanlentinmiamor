@@ -1,171 +1,82 @@
-/* Fuentes y reset */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 body {
   font-family: 'Poppins', sans-serif;
-  background: #1a001f; /* Fondo morado oscuro */
-  min-height: 100vh;
+  background: #1a001f;
+  color: white;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-x: hidden;
-  position: relative;
-  color: #fff;
-}
-
-/* Contenedor centrado vertical */
-.centro-pantalla {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* centra verticalmente */
-  z-index: 10;
+  overflow-x: hidden;
 }
 
-/* Carta */
+.centro-pantalla {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .carta {
-  position: relative;
-  background: #ffffff; /* Fondo blanco de la carta */
-  padding: 50px 40px 100px;
-  width: 90%;
-  max-width: 750px;
-  border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(165, 94, 255, 0.5);
+  background: white;
   color: #3b0052;
-  font-weight: 400;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
+  padding: 50px;
+  border-radius: 25px;
+  max-width: 700px;
   opacity: 0;
-  transform-origin: top center;
   transform: scaleY(0);
-  transition: transform 0.7s ease, opacity 0.7s ease;
-  margin-top: 20px;
-  z-index: 5;
+  transform-origin: top;
+  transition: 0.8s ease;
 }
 
-/* Abrir carta hacia abajo */
 .carta.abrir-carta {
   opacity: 1;
   transform: scaleY(1);
 }
 
-/* Título grande y brillante */
-.titulo-animado {
+.nombre-brillo {
+  color: #b14cff;
   font-weight: 600;
-  font-size: 3.2rem;
-  color: #7c00ff;
-  margin-bottom: 30px;
+  text-shadow: 0 0 8px #d580ff;
+  animation: latido 2.5s infinite;
+}
+
+@keyframes latido {
+  0%,100% { text-shadow: 0 0 8px #d580ff; }
+  50% { text-shadow: 0 0 20px #ff9dfc; }
+}
+
+.contador-box {
+  margin-top: 40px;
+  font-size: 1.1rem;
   text-align: center;
-  text-shadow:
-    0 0 8px #d580ff,
-    0 0 20px #d580ff,
-    0 0 40px #7c00ff;
 }
 
-/* Párrafo especial */
-.estilo-especial {
-  white-space: pre-line;
-  margin-top: 0;
+.final-romantico {
+  margin-top: 40px;
+  text-align: center;
 }
 
-/* Botón */
-.boton-animado {
-  background-color: #7c00ff;
+.oculto { display: none; }
+
+.boton-final {
+  background: #7c00ff;
   border: none;
-  border-radius: 25px;
-  padding: 20px 40px;
+  padding: 15px 25px;
+  margin: 10px;
+  border-radius: 20px;
   color: white;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
-  display: block;
-  box-shadow:
-    0 0 15px #b375ff,
-    0 0 30px #7c00ff;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  user-select: none;
-}
-
-.boton-animado:hover {
-  background-color: #a85fff;
-  transform: scale(1.1);
-}
-
-/* Imagen Kuromi arriba del botón */
-.kuromi-top {
-  width: 160px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px #a020f0);
-  animation: floatKuromi 3s ease-in-out infinite;
-}
-
-@keyframes floatKuromi {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* Corazones flotantes */
-#hearts-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
 }
 
 .heart-float {
   position: absolute;
   top: -50px;
-  color: #8a2be2;
-  user-select: none;
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 5px #a020f0);
+  animation: fall linear infinite;
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Responsive */
-@media screen and (max-width: 600px) {
-  .carta {
-    width: 95%;
-    padding: 30px 20px 80px;
-    font-size: 1rem;
-  }
-
-  .titulo-animado {
-    font-size: 2.5rem;
-  }
-
-  .boton-animado {
-    width: 90%;
-    padding: 15px 0;
-    font-size: 1.1rem;
-    border-radius: 20px;
-  }
-
-  .kuromi-top {
-    width: 120px;
-  }
+  to { transform: translateY(110vh); }
 }
