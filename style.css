@@ -1,33 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #1a001f;
-  color: white;
+  min-height: 100vh;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-x: hidden;
+  position: relative;
+  color: #fff;
 }
 
 .centro-pantalla {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  z-index: 10;
 }
 
 .carta {
-  background: white;
-  color: #3b0052;
-  padding: 50px;
+  position: relative;
+  background: #ffffff;
+  padding: 50px 40px 100px;
+  width: 90%;
+  max-width: 750px;
   border-radius: 25px;
-  max-width: 700px;
+  box-shadow: 0 8px 20px rgba(165, 94, 255, 0.5);
+  color: #3b0052;
+  font-size: 1.15rem;
+  line-height: 1.6;
   opacity: 0;
+  transform-origin: top center;
   transform: scaleY(0);
-  transform-origin: top;
-  transition: 0.8s ease;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+  margin-top: 20px;
+  z-index: 5;
 }
 
 .carta.abrir-carta {
@@ -35,48 +48,97 @@ body {
   transform: scaleY(1);
 }
 
-.nombre-brillo {
-  color: #b14cff;
+.titulo-animado {
   font-weight: 600;
-  text-shadow: 0 0 8px #d580ff;
-  animation: latido 2.5s infinite;
-}
-
-@keyframes latido {
-  0%,100% { text-shadow: 0 0 8px #d580ff; }
-  50% { text-shadow: 0 0 20px #ff9dfc; }
-}
-
-.contador-box {
-  margin-top: 40px;
-  font-size: 1.1rem;
+  font-size: 3.2rem;
+  color: #7c00ff;
+  margin-bottom: 30px;
   text-align: center;
+  text-shadow:
+    0 0 8px #d580ff,
+    0 0 20px #d580ff,
+    0 0 40px #7c00ff;
 }
 
-.final-romantico {
-  margin-top: 40px;
-  text-align: center;
+.estilo-especial {
+  white-space: pre-line;
+  margin-top: 0;
 }
 
-.oculto { display: none; }
-
-.boton-final {
-  background: #7c00ff;
+.boton-animado {
+  background-color: #7c00ff;
   border: none;
-  padding: 15px 25px;
-  margin: 10px;
-  border-radius: 20px;
+  border-radius: 25px;
+  padding: 20px 40px;
   color: white;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 600;
   cursor: pointer;
+  margin-top: 20px;
+  box-shadow:
+    0 0 15px #b375ff,
+    0 0 30px #7c00ff;
+  transition: 0.3s ease;
+}
+
+.boton-animado:hover {
+  background-color: #a85fff;
+  transform: scale(1.1);
+}
+
+.kuromi-top {
+  width: 160px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px #a020f0);
+  animation: floatKuromi 3s ease-in-out infinite;
+}
+
+@keyframes floatKuromi {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Kuromis laterales */
+.kuromi-lateral {
+  position: fixed;
+  top: 50%;
+  width: 140px;
+  transform: translateY(-50%);
+  z-index: 3;
+  filter: drop-shadow(0 0 15px #a020f0);
+  animation: floatKuromi 3s ease-in-out infinite;
+}
+
+.kuromi-lateral.izquierda { left: 20px; }
+.kuromi-lateral.derecha { right: 20px; }
+
+@media screen and (max-width: 900px) {
+  .kuromi-lateral { display: none; }
+}
+
+/* Corazones */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .heart-float {
   position: absolute;
   top: -50px;
+  color: #8a2be2;
   animation: fall linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 5px #a020f0);
 }
 
 @keyframes fall {
-  to { transform: translateY(110vh); }
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
