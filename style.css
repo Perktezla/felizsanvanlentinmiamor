@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* Carta centrada */
   overflow-x: hidden;
   position: relative;
   color: #fff;
@@ -27,19 +27,19 @@ body {
 .carta {
   position: relative;
   background: #ffffff;
-  padding: 50px 40px 100px;
+  padding: 40px 30px 60px;
   width: 90%;
   max-width: 750px;
   border-radius: 25px;
   box-shadow: 0 8px 20px rgba(165, 94, 255, 0.5);
   color: #3b0052;
-  font-size: 1.15rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.5;
   opacity: 0;
   transform-origin: top center;
   transform: scaleY(0);
   transition: transform 0.7s ease, opacity 0.7s ease;
-  margin-top: 20px;
+  margin: 20px 0;
   z-index: 5;
 }
 
@@ -50,9 +50,9 @@ body {
 
 .titulo-animado {
   font-weight: 600;
-  font-size: 3.2rem;
+  font-size: 3rem;
   color: #7c00ff;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
   text-shadow:
     0 0 8px #d580ff,
@@ -60,18 +60,28 @@ body {
     0 0 40px #7c00ff;
 }
 
-.estilo-especial {
+.estilo-especial, #texto-carta {
   white-space: pre-line;
-  margin-top: 0;
+  margin: 0;
 }
 
+/* Contador */
+.contador-box {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #3b0052;
+}
+
+/* Botón */
 .boton-animado {
   background-color: #7c00ff;
   border: none;
   border-radius: 25px;
-  padding: 20px 40px;
+  padding: 15px 35px;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   cursor: pointer;
   margin-top: 20px;
@@ -86,8 +96,9 @@ body {
   transform: scale(1.1);
 }
 
+/* Kuromi central */
 .kuromi-top {
-  width: 160px;
+  width: 150px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 15px #a020f0);
   animation: floatKuromi 3s ease-in-out infinite;
