@@ -2,6 +2,7 @@ const boton = document.getElementById("boton-secreto");
 const carta = document.querySelector(".carta");
 const textoCarta = document.getElementById("texto-carta");
 const contadorBox = document.getElementById("contador-box");
+const musica = document.getElementById("musica-fondo");
 
 const mensaje = `Hola Mi Amor 💜,
 
@@ -22,22 +23,24 @@ const inicioNovios = new Date("2026-02-08T04:22:00");
 boton.addEventListener("click", () => {
   carta.classList.add("abrir-carta");
   document.querySelector(".centro-pantalla").style.display = "none";
-  escribirTexto(); // Escribir carta animada
-  moverKuromis();  // Kuromis laterales
+  escribirTexto();      // Carta animada
+  moverKuromis();       // Kuromis laterales
+  musica.play();        // Reproducir música
 });
 
-// Escribir texto animado letra por letra
+// Escribir texto animado letra por letra (respetando saltos de línea)
 function escribirTexto() {
   let i = 0;
   const velocidad = 20;
 
   const intervalo = setInterval(() => {
-    textoCarta.innerText = mensaje.slice(0, i);
+    textoCarta.innerHTML = mensaje.slice(0, i).replace(/\n/g, "<br>");
     i++;
     if (i > mensaje.length) {
       clearInterval(intervalo);
-      // Mostrar contador al terminar
+      // Mostrar contador con fade-in
       contadorBox.style.display = "block";
+      contadorBox.classList.add("fade-in");
       iniciarContadores();
     }
   }, velocidad);

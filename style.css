@@ -1,3 +1,4 @@
+/* Fuentes y reset */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
@@ -9,12 +10,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Carta centrada */
+  justify-content: flex-start;
   overflow-x: hidden;
   position: relative;
   color: #fff;
 }
 
+/* Contenedor centrado vertical */
 .centro-pantalla {
   display: flex;
   flex-direction: column;
@@ -24,35 +26,40 @@ body {
   z-index: 10;
 }
 
+/* Carta */
 .carta {
   position: relative;
   background: #ffffff;
-  padding: 40px 30px 60px;
+  padding: 50px 40px 100px;
   width: 90%;
   max-width: 750px;
   border-radius: 25px;
   box-shadow: 0 8px 20px rgba(165, 94, 255, 0.5);
   color: #3b0052;
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: left;
   opacity: 0;
   transform-origin: top center;
   transform: scaleY(0);
   transition: transform 0.7s ease, opacity 0.7s ease;
-  margin: 20px 0;
+  margin-top: 20px;
   z-index: 5;
 }
 
+/* Abrir carta hacia abajo */
 .carta.abrir-carta {
   opacity: 1;
   transform: scaleY(1);
 }
 
+/* Título grande y brillante */
 .titulo-animado {
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3.2rem;
   color: #7c00ff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   text-shadow:
     0 0 8px #d580ff,
@@ -60,18 +67,27 @@ body {
     0 0 40px #7c00ff;
 }
 
-.estilo-especial, #texto-carta {
+/* Párrafo especial */
+.estilo-especial {
   white-space: pre-line;
-  margin: 0;
+  margin-top: 0;
 }
 
 /* Contador */
 .contador-box {
-  margin-top: 30px;
-  text-align: center;
+  margin-top: 40px;
   font-size: 1.1rem;
-  line-height: 1.4;
-  color: #3b0052;
+  text-align: center;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 /* Botón */
@@ -79,16 +95,18 @@ body {
   background-color: #7c00ff;
   border: none;
   border-radius: 25px;
-  padding: 15px 35px;
+  padding: 20px 40px;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
   margin-top: 20px;
+  display: block;
   box-shadow:
     0 0 15px #b375ff,
     0 0 30px #7c00ff;
-  transition: 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  user-select: none;
 }
 
 .boton-animado:hover {
@@ -96,9 +114,9 @@ body {
   transform: scale(1.1);
 }
 
-/* Kuromi central */
+/* Imagen Kuromi arriba del botón */
 .kuromi-top {
-  width: 150px;
+  width: 160px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 15px #a020f0);
   animation: floatKuromi 3s ease-in-out infinite;
@@ -114,21 +132,16 @@ body {
 .kuromi-lateral {
   position: fixed;
   top: 50%;
-  width: 140px;
+  width: 120px;
   transform: translateY(-50%);
-  z-index: 3;
-  filter: drop-shadow(0 0 15px #a020f0);
   animation: floatKuromi 3s ease-in-out infinite;
+  z-index: 10;
 }
 
-.kuromi-lateral.izquierda { left: 20px; }
-.kuromi-lateral.derecha { right: 20px; }
+.kuromi-lateral.izquierda { left: 10px; }
+.kuromi-lateral.derecha { right: 10px; }
 
-@media screen and (max-width: 900px) {
-  .kuromi-lateral { display: none; }
-}
-
-/* Corazones */
+/* Corazones flotantes */
 #hearts-container {
   position: fixed;
   top: 0;
@@ -144,21 +157,49 @@ body {
   position: absolute;
   top: -50px;
   color: #8a2be2;
-  animation: fall linear infinite;
+  user-select: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   opacity: 0.8;
   filter: drop-shadow(0 0 5px #a020f0);
 }
 
 @keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
-/* Contador oculto al inicio */
-.contador-box {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #3b0052;
-  display: none; /* Se mostrará después */
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .carta {
+    width: 95%;
+    padding: 30px 20px 80px;
+    font-size: 1rem;
+  }
+
+  .titulo-animado {
+    font-size: 2.5rem;
+  }
+
+  .boton-animado {
+    width: 90%;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    border-radius: 20px;
+  }
+
+  .kuromi-top {
+    width: 120px;
+  }
+
+  .kuromi-lateral {
+    width: 80px;
+  }
 }
